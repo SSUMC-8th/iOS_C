@@ -1,0 +1,18 @@
+#
+//  project.yml
+//  Starbucks
+//
+//  Created by 김나영 on 3/19/25.
+//
+
+name: Starbucks
+targets:
+  Starbucks:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources: [Starbucks]
+    settings:
+      base:
+        INFOPLIST_FILE: ProjectName/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.ProjectName
