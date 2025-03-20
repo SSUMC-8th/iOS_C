@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F072F04CCB449ACF5716023 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC720FD866BED48DC40C1D1 /* Preview Assets.xcassets */; };
+		12BB8F442FC341DEFFD14DE3 /* StarBucksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB5D750EC6C7BDA65B8A13 /* StarBucksTests.swift */; };
+		3CD960332D8A82D3003A5538 /*  Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD960322D8A82D3003A5538 /*  Colors.xcassets */; };
+		456955D5DCC43CC96E12FAB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB41CB102F5A2ECE4D5B232 /* Assets.xcassets */; };
+		5BA760370E12E021C7F1F99E /* StarBucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F90B59D58C2F3EF0B7F1CE /* StarBucksApp.swift */; };
+		DDF333E891AC4F6511083CA0 /* TuistAssets+StarBucks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA7DBDA455B1078A44457E /* TuistAssets+StarBucks.swift */; };
+		F08F0B65976BDC9A35DADE24 /* TuistBundle+StarBucks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF26557A2213D317D530061 /* TuistBundle+StarBucks.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D41B8E418A4EC59C83B4C8B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D6B868715AD4AE6075CB38E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6D33F7067EED3E0FC5583F5;
+			remoteInfo = StarBucks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C15AD53E9D2AF79291C0670 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99FA68C0C2EC42968761DB3B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		10CA7DBDA455B1078A44457E /* TuistAssets+StarBucks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+StarBucks.swift"; sourceTree = "<group>"; };
+		1FF26557A2213D317D530061 /* TuistBundle+StarBucks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+StarBucks.swift"; sourceTree = "<group>"; };
+		26DE7A77CA98DDB7371745CE /* StarBucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarBucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CD960322D8A82D3003A5538 /*  Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = " Colors.xcassets"; sourceTree = "<group>"; };
+		4FC720FD866BED48DC40C1D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		70CB5D750EC6C7BDA65B8A13 /* StarBucksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarBucksTests.swift; sourceTree = "<group>"; };
+		7CB41CB102F5A2ECE4D5B232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E43A21F773F014CD5518531 /* StarBucksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "StarBucksTests-Info.plist"; sourceTree = "<group>"; };
+		9349EAB055351097416A319A /* StarBucks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "StarBucks-Info.plist"; sourceTree = "<group>"; };
+		B1F0EA283087FA6BEEAF741D /* StarBucksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarBucksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F90B59D58C2F3EF0B7F1CE /* StarBucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarBucksApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3CD95FDF2D8A6093003A5538 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		3CD95FE32D8A60CD003A5538 /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
+		3CD95FE72D8A60ED003A5538 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		3CD95FFE2D8A6A13003A5538 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42B9A09AF0220412176E72F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAB5E9410643ACA257E1766F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08A114361E1078CA05E31C3E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4FC720FD866BED48DC40C1D1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1768B14ECFD004DA6FBB47E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26DE7A77CA98DDB7371745CE /* StarBucks.app */,
+				B1F0EA283087FA6BEEAF741D /* StarBucksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		459AF033C3210B29706E4F10 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				70CB5D750EC6C7BDA65B8A13 /* StarBucksTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		4D52C1BBF0487F4E985BCE41 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				10CA7DBDA455B1078A44457E /* TuistAssets+StarBucks.swift */,
+				1FF26557A2213D317D530061 /* TuistBundle+StarBucks.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8B086808EE54762D87831990 /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				E9B42C0AD7693F0F4ED5E8FC /* InfoPlists */,
+				4D52C1BBF0487F4E985BCE41 /* Sources */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		AC4055CCE2A98931520BE7B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3CD95FFE2D8A6A13003A5538 /* Fonts */,
+				08A114361E1078CA05E31C3E /* Preview Content */,
+				7CB41CB102F5A2ECE4D5B232 /* Assets.xcassets */,
+				3CD960322D8A82D3003A5538 /*  Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B63495037B20C9FD4A846421 = {
+			isa = PBXGroup;
+			children = (
+				DA5E1973386DC0220B074DFC /* Project */,
+				1768B14ECFD004DA6FBB47E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD8E15DC936715C0893C63FA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F3F90B59D58C2F3EF0B7F1CE /* StarBucksApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DA5E1973386DC0220B074DFC /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				8B086808EE54762D87831990 /* Derived */,
+				E5B42933EE9025489CD60B5A /* StarBucks */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		E5B42933EE9025489CD60B5A /* StarBucks */ = {
+			isa = PBXGroup;
+			children = (
+				3CD95FE72D8A60ED003A5538 /* Views */,
+				3CD95FE32D8A60CD003A5538 /* ViewModels */,
+				3CD95FDF2D8A6093003A5538 /* Models */,
+				AC4055CCE2A98931520BE7B6 /* Resources */,
+				BD8E15DC936715C0893C63FA /* Sources */,
+				459AF033C3210B29706E4F10 /* Tests */,
+			);
+			path = StarBucks;
+			sourceTree = "<group>";
+		};
+		E9B42C0AD7693F0F4ED5E8FC /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				9349EAB055351097416A319A /* StarBucks-Info.plist */,
+				7E43A21F773F014CD5518531 /* StarBucksTests-Info.plist */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6D33F7067EED3E0FC5583F5 /* StarBucks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91B739E8AAE39B96FAB6628C /* Build configuration list for PBXNativeTarget "StarBucks" */;
+			buildPhases = (
+				DEA8742402A245CA1F30412E /* Sources */,
+				24B9BB82DD35EB7A3D8CACBE /* Resources */,
+				42B9A09AF0220412176E72F8 /* Frameworks */,
+				4C15AD53E9D2AF79291C0670 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3CD95FDF2D8A6093003A5538 /* Models */,
+				3CD95FE32D8A60CD003A5538 /* ViewModels */,
+				3CD95FE72D8A60ED003A5538 /* Views */,
+				3CD95FFE2D8A6A13003A5538 /* Fonts */,
+			);
+			name = StarBucks;
+			packageProductDependencies = (
+			);
+			productName = StarBucks;
+			productReference = 26DE7A77CA98DDB7371745CE /* StarBucks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB8C674A83FE53E597C233CB /* StarBucksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1C6DA8EFA299B49D8FB8F98 /* Build configuration list for PBXNativeTarget "StarBucksTests" */;
+			buildPhases = (
+				587D2BF0C5A077115FABBE3A /* Sources */,
+				B8CD8933201C951370AA4D07 /* Resources */,
+				EAB5E9410643ACA257E1766F /* Frameworks */,
+				99FA68C0C2EC42968761DB3B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9088ECFF6E338137C9EF9373 /* PBXTargetDependency */,
+			);
+			name = StarBucksTests;
+			packageProductDependencies = (
+			);
+			productName = StarBucksTests;
+			productReference = B1F0EA283087FA6BEEAF741D /* StarBucksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D6B868715AD4AE6075CB38E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				TargetAttributes = {
+					BB8C674A83FE53E597C233CB = {
+						TestTargetID = B6D33F7067EED3E0FC5583F5;
+					};
+				};
+			};
+			buildConfigurationList = 963B4A133B994AE528FA9216 /* Build configuration list for PBXProject "StarBucks" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B63495037B20C9FD4A846421;
+			productRefGroup = 1768B14ECFD004DA6FBB47E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6D33F7067EED3E0FC5583F5 /* StarBucks */,
+				BB8C674A83FE53E597C233CB /* StarBucksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24B9BB82DD35EB7A3D8CACBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				456955D5DCC43CC96E12FAB1 /* Assets.xcassets in Resources */,
+				3CD960332D8A82D3003A5538 /*  Colors.xcassets in Resources */,
+				0F072F04CCB449ACF5716023 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8CD8933201C951370AA4D07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		587D2BF0C5A077115FABBE3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12BB8F442FC341DEFFD14DE3 /* StarBucksTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEA8742402A245CA1F30412E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDF333E891AC4F6511083CA0 /* TuistAssets+StarBucks.swift in Sources */,
+				F08F0B65976BDC9A35DADE24 /* TuistBundle+StarBucks.swift in Sources */,
+				5BA760370E12E021C7F1F99E /* StarBucksApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9088ECFF6E338137C9EF9373 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StarBucks;
+			target = B6D33F7067EED3E0FC5583F5 /* StarBucks */;
+			targetProxy = D41B8E418A4EC59C83B4C8B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0121945E473C1342B401BD6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B93A96AFD46C13DD2A9562F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Derived/InfoPlists/StarBucksTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.StarBucksTests;
+				PRODUCT_NAME = StarBucksTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarBucks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarBucks";
+				TEST_TARGET_NAME = StarBucks;
+			};
+			name = Release;
+		};
+		999FB2083CA32E7F9E40F7CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAAB08B34550A1417DD2C7BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/StarBucks-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.StarBucks;
+				PRODUCT_NAME = StarBucks;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C6733D35D0AC3BE03A88DE89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/StarBucks-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.StarBucks;
+				PRODUCT_NAME = StarBucks;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD1A24486E015597C12017A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Derived/InfoPlists/StarBucksTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.tuist.StarBucksTests;
+				PRODUCT_NAME = StarBucksTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarBucks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarBucks";
+				TEST_TARGET_NAME = StarBucks;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		91B739E8AAE39B96FAB6628C /* Build configuration list for PBXNativeTarget "StarBucks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6733D35D0AC3BE03A88DE89 /* Debug */,
+				AAAB08B34550A1417DD2C7BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		963B4A133B994AE528FA9216 /* Build configuration list for PBXProject "StarBucks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0121945E473C1342B401BD6A /* Debug */,
+				999FB2083CA32E7F9E40F7CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1C6DA8EFA299B49D8FB8F98 /* Build configuration list for PBXNativeTarget "StarBucksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1A24486E015597C12017A5 /* Debug */,
+				0B93A96AFD46C13DD2A9562F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D6B868715AD4AE6075CB38E /* Project object */;
+}
