@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject private var viewModel = LoginViewModel()
+    
+    @FocusState private var isIdFocused: Bool
+    @FocusState private var isPasswordFocused: Bool
+    
     var body: some View {
-        mainLoginGroup
+        NavigationStack {
+            mainLoginGroup
+        }
     }
     
     private var mainLoginGroup: some View {
@@ -24,7 +31,7 @@ struct LoginView: View {
         }
         .padding(EdgeInsets(top: 0, leading: 19, bottom: 0, trailing: 19))
         .background(Color.clear)
-        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+//        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
     }
 
     private var topLogoGroup: some View {
@@ -48,15 +55,30 @@ struct LoginView: View {
     private var inputLoginGroup: some View {
         VStack {
             Group {
-                Text("아이디")
-                    .font(.PretendardLight13)
-                    .frame(height: 1)
+                HStack {
+                    Text("아이디")
+                        .font(.PretendardLight13)
+                        .frame(height: 1)
+                    TextField("", text: $viewModel.loginModel.id)
+                        .focused($isIdFocused)
+                }
+                .frame(height: 12.57)
                 Divider()
+                    .frame(height: 1)
+                    .background(isIdFocused ? Color("mainGreenColor") : Color("fontLightgrayColor"))
                     .padding(EdgeInsets(top:0, leading: 0, bottom: 47, trailing: 0))
-                Text("비밀번호")
-                    .font(.PretendardLight13)
-                    .frame(height: 1)
+                
+                HStack {
+                    Text("비밀번호")
+                        .font(.PretendardLight13)
+                        .frame(height: 1)
+                    TextField("", text: $viewModel.loginModel.password)
+                        .focused($isPasswordFocused)
+                }
+                .frame(height: 12.57)
                 Divider()
+                    .frame(height: 1)
+                    .background(isPasswordFocused ? Color("mainGreenColor") : Color("fontLightgrayColor"))
                     .padding(EdgeInsets(top:0, leading: 0, bottom: 47, trailing: 0))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -75,7 +97,8 @@ struct LoginView: View {
     
     private var bottomLoginGroup: some View {
         VStack(alignment: .center) {
-            Button(action: { /*아직안함*/ }) {
+//            Button(action: { /*아직안함*/ }) {
+            NavigationLink(destination: SignupView()) {
                 Text("이메일로 회원가입하기")
                     .font(.PretendardLight12)
                     .foregroundStyle(Color("fontLightgrayColor"))
