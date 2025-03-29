@@ -47,6 +47,7 @@ extension Font {
         return .pretend(type: .light, size: 16)
     }
     
+
     static var PretendardLight14: Font {
         return .pretend(type: .light, size: 14)
     }
@@ -70,7 +71,6 @@ extension Font {
     static var PretendardSemiBold18: Font {
         return .pretend(type: .semibold, size: 18)
     }
-    
     static var PretendardSemiBold24: Font {
         return .pretend(type: .semibold, size: 24)
     }
