@@ -8,6 +8,9 @@ import SwiftUI
 import Foundation
 
 struct PopupView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View{
         VStack(alignment: .center){
             
@@ -38,6 +41,8 @@ struct PopupView: View {
             
             Button(action: {
                 print("닫기 클릭")
+                dismiss()
+                
             }) {
                 
                 Text("X 닫기")
