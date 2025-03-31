@@ -9,6 +9,10 @@ import SwiftUI
 
 struct LoginView : View {
     
+    
+    @State private var loginid: String = ""
+    @State private var loginpassword: String = ""
+    
     var body: some View {
         
         VStack {
@@ -50,11 +54,7 @@ struct LoginView : View {
         
         //부모뷰 기준으로 지정하려면 프레임 -> 해결해서 공유하기...
     }
-    
-    
-    @State private var id: String = ""
-    @State private var password: String = ""
-    
+
     
     private var middle : some View {
         
@@ -62,11 +62,11 @@ struct LoginView : View {
             VStack (alignment: .leading){
                 
          
-                TextField("아이디", text: $id) //id: id가 아님?
+                TextField("아이디", text: $loginid) //id: id가 아님?
                         .font(Font.PretendardRegular13)
                     .foregroundColor(Color("black01"))
                         .onSubmit {
-                        print("사용자가 입력 완료: \(id)")
+                        print("사용자가 아이디 입력 완료: \(loginid)")
                                    }
                 
                 Divider().foregroundColor(Color("green01"))
@@ -74,12 +74,13 @@ struct LoginView : View {
                 Spacer().frame(height: 47)
                 
            
-                    TextField("비밀번호", text: $password)
+                    TextField("비밀번호", text: $loginpassword)
                         .font(Font.PretendardRegular13)
                         .foregroundColor(Color("black01"))
                         .onSubmit {
-                        print("사용자가 입력 완료: \(password)")
+                        print("사용자가 비번 입력 완료: \(loginpassword)")
                                    }
+                // 커서 작동하는 동안 초록색으로 바꾸기
                 
                 Divider().foregroundColor(Color("green01"))
                 
@@ -105,20 +106,20 @@ struct LoginView : View {
     }
     
     
-// 텍스트 필드
-    struct CounterView: View {
-        @State private var text: String = ""
-
-        var body: some View {
-            VStack {
-                Text("텍스트 내용: \(text)")
-                    .font(.largeTitle)
-
-                TextField("아무 값을 입력해보세요!", text: $text)
-                    .frame(width: 350)
-            }
-        }
-    }
+//// 텍스트 필드
+//    struct CounterView: View {
+//        @State private var text: String = ""
+//
+//        var body: some View {
+//            VStack {
+//                Text("텍스트 내용: \(text)")
+//                    .font(.largeTitle)
+//
+//                TextField("아무 값을 입력해보세요!", text: $text)
+//                    .frame(width: 350)
+//            }
+//        }
+//    }
     
     
     private var bottom : some View {
