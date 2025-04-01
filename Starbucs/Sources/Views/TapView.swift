@@ -15,22 +15,20 @@ struct TapView: View {
     var body: some View {
         
         Spacer()
-        
-        
-        
+    
         
         HStack(alignment: .center, spacing: 44) {
             
             
             TabView(selection: $selectedTab) {
                 
-                OtherView()
+                OtherView() // HomeView()
                     .tabItem {
                         Label("Home", image: selectedTab == 0 ? "homeG" : "home")
                     }
                     .tag(0)
                 
-                OtherView()
+                OtherView() //
                     .tabItem {
                         Label("Pay", image: selectedTab == 1 ? "payG" : "pay")
                     }
@@ -60,7 +58,7 @@ struct TapView: View {
         .padding(.horizontal, 0)
         .padding(.vertical, 10)
         .frame(width: 440, height: 83, alignment: .center)
-        .background(.white)
+        .background(.clear)
     }
 }
 
