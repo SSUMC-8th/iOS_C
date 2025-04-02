@@ -14,6 +14,7 @@ struct TabBarView: View {
         TabView(selection: $selection) {
             Tab(value: 0) {
                 HomeView()
+
             } label: {
                 Label {
                     Text("Home")

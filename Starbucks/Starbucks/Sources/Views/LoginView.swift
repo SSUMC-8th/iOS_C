@@ -14,7 +14,7 @@ struct LoginView: View {
     @FocusState private var isPasswordFocused: Bool
     
     @State private var path = NavigationPath()
-    
+
     var body: some View {
         NavigationStack {
             mainLoginGroup

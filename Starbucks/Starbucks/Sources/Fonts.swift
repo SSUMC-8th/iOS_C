@@ -78,7 +78,7 @@ extension Font {
     static var PretendardSemiBold18: Font {
         return .pretend(type: .semibold, size: 18)
     }
-    
+
     static var PretendardSemiBold24: Font {
         return .pretend(type: .semibold, size: 24)
     }
@@ -86,7 +86,7 @@ extension Font {
     static var PretendardSemiBold38: Font {
         return .pretend(type: .semibold, size: 38)
     }
-    
+
     static var PretendardRegular18: Font {
         return .pretend(type: .regular, size: 18)
     }
