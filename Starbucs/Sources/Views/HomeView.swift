@@ -13,20 +13,17 @@ struct HomeView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 20){
                 Topbanner
-                Spacer().frame(height:23)
+                Spacer().frame(height:3)
                 promotionbanner
-                Spacer().frame(height:20)
                 recommandMenu
-                Spacer().frame(height:20)
                 eventBanner
-                Spacer().frame(height:20)
                 serviceSuscibe
-                Spacer().frame(height:20)
                 whatnew
-                Spacer().frame(height:20)
                 pop
+                bread
+                other
             }.padding(.horizontal, 10)
           
         }.scrollIndicators(.visible, axes: .vertical) // 스크롤 표시기 활성화
@@ -86,20 +83,25 @@ struct HomeView: View {
     private var recommandMenu: some View {
         
         let rows = Array(repeating: GridItem(.fixed(80)), count: 1)
-
-        return ScrollView(.horizontal) {
-                        LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(1...6, id: \.self) { index in
-                                
-                                
-                                // 서클 이미지 카드 하위뷰로 생성하도록 ㄱㄱ
-                                Text("Item \(index)")
-                                    .frame(width: 80)
-                                    .frame(maxHeight: .infinity)
-                                    .background(Color.green.opacity(0.7))
-                            }
-                        }
+        
+        return VStack(alignment: .leading) {
+            
+            Text("(설정 닉네임)님을 위한 추천 메뉴")
+                .font(Font.PretendardSemiBold24)
+                .foregroundColor(.black)
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: rows, spacing: 10) {
+                    ForEach(1...6, id: \.self) { index in
+                        // 서클 이미지 카드 하위뷰로 생성하도록 ㄱㄱ
+                        Text("Item \(index)")
+                            .frame(width: 80)
+                            .frame(maxHeight: .infinity)
+                            .background(Color.green.opacity(0.7))
                     }
+                }
+            }
+        }
     }
     
     private var eventBanner: some View {
@@ -129,20 +131,25 @@ struct HomeView: View {
     private var whatnew: some View {
         
         let rows = Array(repeating: GridItem(.fixed(80)), count: 1)
-
-        return ScrollView(.horizontal) {
-                        LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(1...6, id: \.self) { index in
-                                
-                                
-                                // 서클 이미지 카드 하위뷰로 생성하도록 ㄱㄱ
-                                Text("Item \(index)")
-                                    .frame(width: 80)
-                                    .frame(maxHeight: .infinity)
-                                    .background(Color.green.opacity(0.7))
-                            }
-                        }
+        
+        return VStack(alignment: .leading) {
+            
+            Text("What’s New")
+                .font(Font.PretendardSemiBold24)
+                .foregroundColor(.black)
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: rows, spacing: 10) {
+                    ForEach(1...6, id: \.self) { index in
+                        // 서클 이미지 카드 하위뷰로 생성하도록 ㄱㄱ
+                        Text("Item \(index)")
+                            .frame(width: 80)
+                            .frame(maxHeight: .infinity)
+                            .background(Color.green.opacity(0.7))
                     }
+                }
+            }
+        }
     }
     
     private var pop: some View{
@@ -172,6 +179,64 @@ struct HomeView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: .infinity)
                 .frame(height: 218)
+                
+            }
+            .cornerRadius(4)
+            .shadow(color: .black.opacity(0.06), radius: 2, x: 0, y: 6)
+            .shadow(color: .black.opacity(0.1), radius: 2, x: 1, y: 1)
+        }
+    }
+    
+    private var bread: some View {
+        let rows = Array(repeating: GridItem(.fixed(80)), count: 1)
+        
+        return VStack(alignment: .leading) {
+            
+            Text("하루가 달콤해지는 디저트")
+                .font(Font.PretendardSemiBold24)
+                .foregroundColor(.black)
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: rows, spacing: 10) {
+                    ForEach(1...6, id: \.self) { index in
+                        // 서클 이미지 카드 하위뷰로 생성하도록 ㄱㄱ
+                        Text("Item \(index)")
+                            .frame(width: 80)
+                            .frame(maxHeight: .infinity)
+                            .background(Color.green.opacity(0.7))
+                    }
+                }
+            }
+        }
+    }
+    
+    private var other: some View{
+        
+        VStack{
+            
+            Group{
+                
+                Image(.cold)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity)
+                .frame(height: 182)
+                
+                Spacer().frame(height:14)
+                
+                Image(.mainme)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity)
+                .frame(height: 360)
+                
+                Spacer().frame(height:14)
+                
+                Image(.make)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity)
+                .frame(height: 182)
                 
             }
             .cornerRadius(4)
