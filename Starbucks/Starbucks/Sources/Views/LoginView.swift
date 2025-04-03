@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
+    @StateObject private var loginViewModel = LoginViewModel()
     
     @FocusState private var isIdFocused: Bool
     @FocusState private var isPasswordFocused: Bool
     
     @State private var path = NavigationPath()
+//    @State private var isLoggedIn = false
     
     var body: some View {
         NavigationStack {
@@ -61,7 +62,7 @@ struct LoginView: View {
                     Text("아이디")
                         .font(.PretendardLight13)
                         .frame(height: 1)
-                    TextField("", text: $viewModel.loginModel.id)
+                    TextField("", text: $loginViewModel.loginModel.id)
                         .focused($isIdFocused)
                 }
                 .frame(height: 12.57)
@@ -74,7 +75,7 @@ struct LoginView: View {
                     Text("비밀번호")
                         .font(.PretendardLight13)
                         .frame(height: 1)
-                    TextField("", text: $viewModel.loginModel.password)
+                    TextField("", text: $loginViewModel.loginModel.password)
                         .focused($isPasswordFocused)
                 }
                 .frame(height: 12.57)
@@ -85,7 +86,7 @@ struct LoginView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Button(action: { /*아직안함*/ }) {
+            Button(action: { loginViewModel.login(id: loginViewModel.loginModel.id, password: loginViewModel.loginModel.password) }) {
                 Text("로그인하기")
                     .font(.PretendardSemiBold16)
                     .foregroundColor(.white)
@@ -94,6 +95,10 @@ struct LoginView: View {
             .padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
             .background(Color("mainGreenColor"))
             .cornerRadius(20)
+            
+            .fullScreenCover(isPresented: $loginViewModel.isLoggedIn) {
+                TabBarView()
+            }
         }
     }
     

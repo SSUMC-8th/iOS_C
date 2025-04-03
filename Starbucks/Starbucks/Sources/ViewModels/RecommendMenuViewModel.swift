@@ -10,7 +10,7 @@ import SwiftUI
 
 @Observable
 class RecommendMenuViewModel {
-    let circleModel: [RecommendMenuModel] = [
+    let menuDetails: [RecommendMenuModel] = [
         RecommendMenuModel(circleImage: Image("rcmMenu1"), circleName: "에스프레소 콘파나"),
         RecommendMenuModel(circleImage: Image("rcmMenu2"), circleName: "에스프레소 마키아또"),
         RecommendMenuModel(circleImage: Image("rcmMenu3"), circleName: "아이스 카페 아메리카노"),

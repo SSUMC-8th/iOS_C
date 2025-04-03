@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct OtherView: View {
-    @StateObject private var viewModel = OtherViewModel()
+    @StateObject private var otherViewModel = OtherViewModel()
+    @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
         Group {
@@ -29,9 +30,15 @@ struct OtherView: View {
             Text("Other")
                 .font(.PretendardBold24)
             Spacer()
-            Image("logout")
-                .resizable()
-                .frame(width: 35, height: 35)
+            Button(action: { loginViewModel.logout() }) {
+                Image("logout")
+                    .resizable()
+                    .frame(width: 35, height: 35)
+            }
+//            .fullScreenCover(isPresented: $loginViewModel.isLoggedIn) {
+//                LoginView()
+//            }
+            //로그아웃 안됨!!!!!!!!!
         }
         .padding(.horizontal, 23.5)
         .padding(.bottom, 16)
@@ -40,7 +47,7 @@ struct OtherView: View {
     private var topMemberInfoGroup: some View {
         VStack {
             HStack(spacing: 0) {
-                Text("\(viewModel.inputNickname)")
+                Text("\(otherViewModel.inputNickname)")
                     .foregroundColor(Color("mainGreenColor"))
                 Text(" 님")
             }

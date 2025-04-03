@@ -10,9 +10,19 @@ import SwiftUI
 
 class LoginViewModel: ObservableObject {
     @Published var loginModel = LoginModel()
-
-    func login() {
-        
+    @Published var isLoggedIn = false
+    
+    func login(id: String, password: String) {
+        if id == loginModel.id && password == loginModel.password {
+            isLoggedIn = true
+        }
+        else {
+            isLoggedIn = false
+        }
+    }
+    
+    func logout() {
+        isLoggedIn = false
     }
 }
 

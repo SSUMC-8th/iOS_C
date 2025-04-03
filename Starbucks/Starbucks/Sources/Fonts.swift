@@ -91,6 +91,10 @@ extension Font {
         return .pretend(type: .regular, size: 18)
     }
     
+    static var PretendardRegular24: Font {
+        return .pretend(type: .regular, size: 24)
+    }
+    
     static var PretendardMedium18: Font {
         return .pretend(type: .medium, size: 18)
     }
