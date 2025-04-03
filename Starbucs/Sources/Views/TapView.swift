@@ -10,57 +10,82 @@ import Foundation
 
 struct TapView: View {
     
-    @State private var selectedTab = 0  // 현재 선택된 탭 추적
+    @State var selection: Int = 0 // 현재 선택된 탭 추적
     
     var body: some View {
-        
-        Spacer()
-    
-        
-        HStack(alignment: .center, spacing: 44) {
+       
             
-            
-            TabView(selection: $selectedTab) {
+            TabView(selection: $selection) {
                 
-                OtherView() // HomeView()
-                    .tabItem {
-                        Label("Home", image: selectedTab == 0 ? "homeG" : "home")
+                Tab(value: 0){
+                    HomeView()
+                } label:{
+                    Label{
+                        Text("Home")
+                    } icon: {
+                        Image(selection == 0 ? "homeG" : "home")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
                     }
-                    .tag(0)
+                }
                 
-                OtherView() //
-                    .tabItem {
-                        Label("Pay", image: selectedTab == 1 ? "payG" : "pay")
+                Tab(value: 1){
+                    //HomeView()
+                } label:{
+                    Label{
+                        Text("Pay")
+                    } icon: {
+                        Image(selection == 1 ? "payG" : "pay")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
                     }
-                    .tag(1)
+                }
                 
-                OtherView()
-                    .tabItem {
-                        Label("Order", image: selectedTab == 2 ? "orderG" : "order")
+                
+                Tab(value: 2){
+                    //HomeView()
+                } label:{
+                    Label{
+                        Text("Order")
+                    } icon: {
+                        Image(selection == 2 ? "orderG" : "order")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
                     }
-                    .tag(2)
+                }
                 
-                OtherView()
-                    .tabItem {
-                        Label("Shop", image: selectedTab == 3 ? "shopG" : "shop")
+                Tab(value: 3){
+                    //HomeView()
+                } label:{
+                    Label{
+                        Text("Shop")
+                    } icon: {
+                        Image(selection == 3 ? "shopG" : "shop")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
                     }
-                    .tag(3)
+                }
                 
-                OtherView()
-                    .tabItem {
-                        Label("Other", image: selectedTab == 4 ? "otherG" : "other")
+                Tab(value: 4){
+                    OtherView()
+                } label:{
+                    Label{
+                        Text("Other")
+                    } icon: {
+                        Image(selection == 4 ? "otherG" : "other")
+                            .resizable()
+                            .frame(width: 30, height: 30)
                     }
-                    .tag(4)
-                
+                }
             }.tint(Color("green02"))
-            .padding(.horizontal, 44)
+            .background(Color(.white))
         }
-        .padding(.horizontal, 0)
-        .padding(.vertical, 10)
-        .frame(width: 440, height: 83, alignment: .center)
-        .background(.clear)
     }
-}
+
 
 #Preview {
     TapView()

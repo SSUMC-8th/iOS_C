@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SignupModel{
     
-    let id: String
-    let password: String
-    let email: String
+    //var id: String
+    var nickname: String
+    var password: String
+    var email: String
     
 }

@@ -36,7 +36,6 @@ struct LoginView : View {
             
             //생성자 순서가 중요함
             
-            
             Spacer().frame(height: 28)
             
             Text("안녕하세요.\n스타벅스입니다.")

@@ -7,21 +7,25 @@
 
 import Foundation
 import SwiftUI
-/*
-@Observable
-class SignupViewModel{
+
+// @Observable 이거로 하면 안 되나?
+class SignupViewModel : ObservableObject {
     
-    @AppStorage ("id") var idStorage: String = ""
-    @AppStorage ("password") var passwordStorage: String = ""
-    @AppStorage ("email") var emailStorage: String = ""
+    @Published var signupModel = SignupModel(nickname: "", password: "", email: "")
+    
+    @AppStorage("nickname") private var nicknameStorage: String = ""
+    @AppStorage ("password") private var passwordStorage: String = ""
+    @AppStorage ("email") private var emailStorage: String = ""
+    //@AppStorage("id") var idStorage: String = ""
     
     
-    public func signUpSave(_id: String, _password: String, _email: String) { // 저장 함수
-        idStorage = _id
-        passwordStorage = _password
-        emailStorage = _email
+    func createAccount() {
+        nicknameStorage = signupModel.nickname
+       // idStorage = signupModel.id
+        passwordStorage = signupModel.email
+        emailStorage = signupModel.password
     }
-    
+
             
 }
-*/
+
