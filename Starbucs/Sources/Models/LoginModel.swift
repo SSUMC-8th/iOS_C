@@ -10,8 +10,8 @@ import SwiftUI
 
 struct LoginModel {
     
-    let loginid: String
-    let loginpassword: String
+    var id: String
+    var password: String
     
 
 }

@@ -8,14 +8,10 @@
 import SwiftUI
 import Foundation
 
-/*
 struct SignupView: View {
     
-   @State private var signid: String = ""
-    @State private var signpassword: String = ""
-    @State private var signemail: String = ""
-    
-    var signupViewModel : SignupViewModel = .init()
+    @StateObject private var viewModel = SignupViewModel()
+
     
     var body: some View {
         
@@ -41,11 +37,11 @@ struct SignupView: View {
     private var TestFiled: some View {
         VStack(alignment:.leading){
             
-            TextField("닉네임", text: $signid) //id: id가 아님?
+            TextField("닉네임", text: $viewModel.signupModel.nickname)
                 .font(Font.PretendardRegular18)
                 .foregroundColor(Color("black01"))
                 .onSubmit {
-                    print("사용자가 닉네임 입력 완료: \(signid)")
+                    print("사용자가 닉네임 입력 완료")
                 }
             
             Divider()
@@ -53,22 +49,22 @@ struct SignupView: View {
             Spacer().frame(height: 47)
             
             
-            TextField("비밀번호", text: $signpassword)
+            TextField("비밀번호", text: $viewModel.signupModel.password)
                 .font(Font.PretendardRegular18)
                 .foregroundColor(Color("black01"))
                 .onSubmit {
-                    print("사용자가 비번 입력 완료: \(signpassword)")
+                    print("사용자가 비번 입력 완료")
                 }
             // 커서 작동하는 동안 초록색으로 바꾸기
             
             Divider()
             Spacer().frame(height: 47)
             
-            TextField("이메일", text: $signemail)
+            TextField("이메일", text: $viewModel.signupModel.email)
                 .font(Font.PretendardRegular18)
                 .foregroundColor(Color("black01"))
                 .onSubmit {
-                    print("사용자가 이메일 입력 완료: \(signemail)")
+                    print("사용자가 이메일 입력 완료")
                 }
             
             Divider()
@@ -82,7 +78,7 @@ struct SignupView: View {
         
         
         Button(action: {
-            signupViewModel.signUpSave(_id: signid,_password: signpassword,_email: signemail)
+            viewModel.createAccount()
         }){
             ZStack(alignment: .center){
                 
@@ -105,4 +101,4 @@ struct SignupView: View {
 #Preview {
     SignupView()
 }
-*/
+
