@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
+    @StateObject private var loginViewModel = LoginViewModel()
     
     @FocusState private var isIdFocused: Bool
     @FocusState private var isPasswordFocused: Bool
+    
+    @State private var path = NavigationPath()
+//    @State private var isLoggedIn = false
     
     var body: some View {
         NavigationStack {
@@ -59,7 +62,7 @@ struct LoginView: View {
                     Text("아이디")
                         .font(.PretendardLight13)
                         .frame(height: 1)
-                    TextField("", text: $viewModel.loginModel.id)
+                    TextField("", text: $loginViewModel.loginModel.id)
                         .focused($isIdFocused)
                 }
                 .frame(height: 12.57)
@@ -72,7 +75,7 @@ struct LoginView: View {
                     Text("비밀번호")
                         .font(.PretendardLight13)
                         .frame(height: 1)
-                    TextField("", text: $viewModel.loginModel.password)
+                    TextField("", text: $loginViewModel.loginModel.password)
                         .focused($isPasswordFocused)
                 }
                 .frame(height: 12.57)
@@ -83,7 +86,7 @@ struct LoginView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Button(action: { /*아직안함*/ }) {
+            Button(action: { loginViewModel.login(id: loginViewModel.loginModel.id, password: loginViewModel.loginModel.password) }) {
                 Text("로그인하기")
                     .font(.PretendardSemiBold16)
                     .foregroundColor(.white)
@@ -92,28 +95,33 @@ struct LoginView: View {
             .padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
             .background(Color("mainGreenColor"))
             .cornerRadius(20)
+            
+            .fullScreenCover(isPresented: $loginViewModel.isLoggedIn) {
+                TabBarView()
+            }
         }
     }
     
     private var bottomLoginGroup: some View {
         VStack(alignment: .center) {
-//            Button(action: { /*아직안함*/ }) {
-            NavigationLink(destination: SignupView()) {
-                Text("이메일로 회원가입하기")
-                    .font(.PretendardLight12)
-                    .foregroundStyle(Color("fontLightgrayColor"))
-                    .underline()
-            }
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 19, trailing: 0))
-            Image("kakaoLogin")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(EdgeInsets(top: 0, leading: 48, bottom: 19, trailing: 48))
+            NavigationStack(path: $path) {
+                NavigationLink(destination: SignupView()) {
+                    Text("이메일로 회원가입하기")
+                        .font(.PretendardLight12)
+                        .foregroundStyle(Color("fontLightgrayColor"))
+                        .underline()
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 19, trailing: 0))
+                Image("kakaoLogin")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(EdgeInsets(top: 0, leading: 48, bottom: 19, trailing: 48))
                 
-            Image("appleLogin")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 48))
+                Image("appleLogin")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 48))
+            }
         }
     }
 }

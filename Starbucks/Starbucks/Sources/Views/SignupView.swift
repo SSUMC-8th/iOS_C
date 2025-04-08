@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignupView: View {
     @StateObject private var viewModel = SignupViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         signupTextFieldGroup
@@ -44,7 +45,12 @@ struct SignupView: View {
             Spacer()
             
             Button(action: {
-                viewModel.createAccount()
+                if viewModel.signupModel.nickname.count > 1
+                && viewModel.signupModel.email.count > 1
+                && viewModel.signupModel.password.count > 1 {
+                    viewModel.createAccount()
+                    dismiss()
+                }
             }) {
                 Text("생성하기")
                     .font(.PretendardSemiBold16)
@@ -56,6 +62,7 @@ struct SignupView: View {
             .cornerRadius(20)
         }
         .padding(EdgeInsets(top: 210, leading: 19, bottom: 72, trailing: 19))
+        .navigationTitle("가입하기")
     }
     
 }
