@@ -59,7 +59,7 @@ class MenuDetailViewModel {
 //        return menuDetails.first { $0.menuKoreanName == circleName }
 //    }
     
-    func getMenuDetail(for name: String) -> MenuDetailModel? {
+    func getMenuDetail(for name: String) -> MenuDetailModel? 
 //        print("getmenudetail함수호출")
         return menuDetails.first(where: { $0.menuKoreanName == name })
     }
