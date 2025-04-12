@@ -33,12 +33,13 @@ struct HomeView: View {
                 pop
                 bread
                 other
-            }.frame(maxWidth: .infinity)
-            .padding(.horizontal, 10)
+            }.padding(.horizontal, 10)
           
         }.frame(maxWidth: .infinity)
         //.frame(maxWidth: .infinity, alignment: .topLeading)
         .scrollIndicators(.visible, axes: .vertical)
+        
+        //resizable을 써보자
     }
     
    private var Topbanner: some View {
@@ -178,6 +179,7 @@ struct HomeView: View {
                 .font(Font.PretendardSemiBold24)
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 10)
                
                 
             
