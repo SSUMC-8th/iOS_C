@@ -83,6 +83,14 @@ extension Font {
     static var PretendardSemiBold16: Font {
             return .pretend(type: .semibold, size: 16)
         }
+    
+    static var PretendardSemiBold22: Font {
+            return .pretend(type: .semibold, size: 22)
+        }
+    
+    static var PretendardSemiBold13: Font {
+            return .pretend(type: .semibold, size: 13)
+        }
 
     static var PretendardLight14: Font {
             return .pretend(type: .light, size: 14)
