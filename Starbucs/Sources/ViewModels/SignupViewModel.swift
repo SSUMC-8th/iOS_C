@@ -16,6 +16,9 @@ class SignupViewModel : ObservableObject {
     @AppStorage("nickname") private var nicknameStorage: String = ""
     @AppStorage ("password") private var passwordStorage: String = ""
     @AppStorage ("email") private var emailStorage: String = ""
+    
+    //사용하는 곳에는 다 선언
+    
     //@AppStorage("id") var idStorage: String = ""
     
     

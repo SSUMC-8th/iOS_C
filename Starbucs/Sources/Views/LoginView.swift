@@ -52,6 +52,8 @@ struct LoginView : View {
         }.frame(maxWidth: .infinity, alignment: .leading)
         
         //부모뷰 기준으로 지정하려면 프레임 -> 해결해서 공유하기...
+        // 둘 다 리딩값 줘야하는 이유: 브이스택 안에 있는 자식 개체에서 가장 큰 애를 따라감.
+        // 스타벅스를 HStack : 배경색 주고 테스트해보기!
     }
 
     

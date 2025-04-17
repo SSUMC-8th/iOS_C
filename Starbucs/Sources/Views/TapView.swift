@@ -14,7 +14,6 @@ struct TapView: View {
     
     var body: some View {
        
-            
             TabView(selection: $selection) {
                 
                 Tab(value: 0){
@@ -25,7 +24,6 @@ struct TapView: View {
                     } icon: {
                         Image(selection == 0 ? "homeG" : "home")
                             .resizable()
-                            .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
                 }
@@ -38,7 +36,6 @@ struct TapView: View {
                     } icon: {
                         Image(selection == 1 ? "payG" : "pay")
                             .resizable()
-                            .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
                 }
@@ -52,7 +49,6 @@ struct TapView: View {
                     } icon: {
                         Image(selection == 2 ? "orderG" : "order")
                             .resizable()
-                            .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
                 }
@@ -65,7 +61,6 @@ struct TapView: View {
                     } icon: {
                         Image(selection == 3 ? "shopG" : "shop")
                             .resizable()
-                            .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
                 }
