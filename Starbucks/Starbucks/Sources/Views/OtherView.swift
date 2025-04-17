@@ -12,16 +12,18 @@ struct OtherView: View {
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
-        Group {
-            topBackgroundGroup
-            VStack {
-                topMemberInfoGroup
-                Spacer()
-                payButtonGroup
-                Spacer()
-                helpButtonGroup
+        NavigationView {
+            VStack(spacing: 0) {
+                topBackgroundGroup
+                VStack {
+                    topMemberInfoGroup
+                    Spacer()
+                    payButtonGroup
+                    Spacer()
+                    helpButtonGroup
+                }
+                .background(Color("otherViewBgColor"))
             }
-            .background(Color("otherViewBgColor"))
         }
     }
     
@@ -59,7 +61,9 @@ struct OtherView: View {
                 .padding(.bottom, 24)
             HStack(spacing: 10.5) {
                 WelcomeButton(imageName: "starHistory", title: "별 히스토리")
-                WelcomeButton(imageName: "receipt", title: "전자영수증")
+                NavigationLink(destination: OtherReceiptView()) {
+                    WelcomeButton(imageName: "receipt", title: "전자영수증")
+                }
                 WelcomeButton(imageName: "myMenu", title: "나만의 메뉴")
             }
         }

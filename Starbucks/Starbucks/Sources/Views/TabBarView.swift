@@ -17,15 +17,15 @@ struct TabBarView: View {
             }
             
             Tab("Pay", image: selection == 1 ? "selectedPay" : "unselectedPay", value: 1) {
-                //                PayView()
+//                PayView()
             }
             
             Tab("Order", image: selection == 2 ? "selectedOrder" : "unselectedOrder", value: 2) {
-                //                OrderView()
+//                OrderView()
             }
             
             Tab("Shop", image: selection == 3 ? "selectedShop" : "unselectedShop", value: 3) {
-                //                ShopView()
+                ShopView()
             }
             
             Tab("Other", image: selection == 4 ? "selectedOther" : "unselectedOther", value: 4) {

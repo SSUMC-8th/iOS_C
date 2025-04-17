@@ -15,8 +15,6 @@ struct PopUpAdView: View {
             Image("popUpAd")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-//                .padding(.top, 0)
-//                .padding(.bottom, 106)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
             
