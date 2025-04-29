@@ -11,24 +11,25 @@ import SwiftUI
 // @Observable 이거로 하면 안 되나?
 class SignupViewModel : ObservableObject {
     
+    @AppStorage("nickname") private var nickname: String = ""
+    @AppStorage ("password") private var password: String = ""
+    @AppStorage ("email") private var email: String = ""
+    
     @Published var signupModel = SignupModel(nickname: "", password: "", email: "")
     
-    @AppStorage("nickname") private var nicknameStorage: String = ""
-    @AppStorage ("password") private var passwordStorage: String = ""
-    @AppStorage ("email") private var emailStorage: String = ""
     
-    //사용하는 곳에는 다 선언
-    
-    //@AppStorage("id") var idStorage: String = ""
-    
-    
-    func createAccount() {
-        nicknameStorage = signupModel.nickname
-       // idStorage = signupModel.id
-        passwordStorage = signupModel.email
-        emailStorage = signupModel.password
+    func createAccount(N: String, P: String, E: String) {
+//        signupModel.nickname = N
+//        signupModel.password = P
+//        signupModel.email = E
+        nickname = N
+        password = P
+        email = E
+        
+        print(nickname)
+        print(password)
+        print(email)
+        
     }
-
-            
 }
 

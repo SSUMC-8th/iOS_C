@@ -12,6 +12,5 @@ struct LoginModel {
     
     var id: String
     var password: String
-    
 
 }

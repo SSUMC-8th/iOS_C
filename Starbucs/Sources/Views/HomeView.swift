@@ -14,10 +14,15 @@ struct HomeView: View {
     
     @State private var dessertviewModel = DessertsViewModel()
     
-    @State private var specialtyMenuviewModel = SpecialtyMenuViewModel()
+    @State private var recommandviewModel = RecommandViewModel()
     
     @State private var whatsnewviewModel = WhatsnewViewModel()
 
+    @AppStorage("nickname") private var nickname: String = ""
+    
+    @State private var path = NavigationPath()
+    
+    
     var body: some View {
         
         ScrollView {
@@ -117,26 +122,17 @@ struct HomeView: View {
         
         return VStack(alignment: .leading) {
             
-            Text("\(signupviewModel.signupModel.nickname)님을 위한 추천 메뉴")
+            Text("\(nickname)님을 위한 추천 메뉴")
                 .font(Font.PretendardSemiBold24)
                 .foregroundColor(.black)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, spacing: 16) {
                     
-                    ForEach(0...5, id: \.self) { index in
-                        
-//                        Image(.eventBanner)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(maxWidth: .infinity)
-//                        .frame(height: 80)
-                        
-                        CircleImageCard(dessertsinfo: dessertviewModel.dessertModel[index])
-                        
-                        //재사용 어떻게 하지??
-                        //CircleImageCard(specialtyinfo: specialtyMenuviewModel.specialtyMenuModel[index])
+                    ForEach(recommandviewModel.recommandInstanceArr, id: \.menuName) { menuItem in
+                        CircleImageCard(Menuinfo: menuItem)
                     }
                 }
             }.padding(.horizontal, 10)
@@ -186,7 +182,7 @@ struct HomeView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, spacing: 10) {
                     ForEach(0...2, id: \.self) { index in
-                        WhatsNewCardView(whatsNewinfo: whatsnewviewModel.whatsnewModel[index])
+                        WhatsNewCard(whatsNewinfo: whatsnewviewModel.whatsnewModel[index])
                     }
                 }
             }.padding(.horizontal, 10)
@@ -241,12 +237,19 @@ struct HomeView: View {
             
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, spacing: 10) {
-                    ForEach(0...5, id: \.self) { index in
-                        CircleImageCard(dessertsinfo: dessertviewModel.dessertModel[index])
+                    ForEach(dessertviewModel.dessertInstanceArr, id: \.menuName) { MenuItem
+                        in CircleImageCard(Menuinfo: MenuItem)
+                            .onTapGesture {
+                                path.append("GKGKG")
+                            }
                     }
                 }
             }.padding(.horizontal, 10)
         } .padding(.horizontal, 10)
+            .navigationTitle("메뉴")
+            .navigationDestination(for: String.self) { value in 
+                MenuDetailView()
+            }
     }
     
     private var other: some View{

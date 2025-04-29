@@ -10,8 +10,7 @@ import SwiftUI
 struct LoginView : View {
     
     
-    @State private var loginid: String = ""
-    @State private var loginpassword: String = ""
+    @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
         
@@ -60,14 +59,17 @@ struct LoginView : View {
     private var middle : some View {
         
         VStack(alignment: .center){
+            
+            @State var loginid: String = ""
+            @State var loginpassword: String = ""
+            
             VStack (alignment: .leading){
                 
-         
-                TextField("아이디", text: $loginid) //id: id가 아님?
+                TextField("아이디", text: $loginViewModel.loginmodel.id)
                         .font(Font.PretendardRegular13)
                     .foregroundColor(Color("black01"))
                         .onSubmit {
-                        print("사용자가 아이디 입력 완료: \(loginid)")
+                        print("사용자가 아이디 입력 완료: \(loginViewModel.loginmodel.id)")
                                    }
                 
                 Divider().foregroundColor(Color("green01"))
@@ -75,11 +77,11 @@ struct LoginView : View {
                 Spacer().frame(height: 47)
                 
            
-                    TextField("비밀번호", text: $loginpassword)
+                    TextField("비밀번호", text: $loginViewModel.loginmodel.password)
                         .font(Font.PretendardRegular13)
                         .foregroundColor(Color("black01"))
                         .onSubmit {
-                        print("사용자가 비번 입력 완료: \(loginpassword)")
+                        print("사용자가 비번 입력 완료: \(loginViewModel.loginmodel.password)")
                                    }
                 // 커서 작동하는 동안 초록색으로 바꾸기
                 
@@ -91,7 +93,7 @@ struct LoginView : View {
             
             
             Button(action: {
-                print("메롱메롱")
+                loginViewModel.login(id: loginid,pw: loginpassword)
             }) {
                 
                 Text("로그인하기")

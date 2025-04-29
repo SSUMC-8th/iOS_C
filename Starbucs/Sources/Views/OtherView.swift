@@ -10,10 +10,9 @@ import Foundation
 
 struct OtherView: View{
     
+    @AppStorage("nickname") var nickname: String = ""
     var body: some View{
-        
         Title
-        
         VStack{
             Spacer()
             UserSection
@@ -25,9 +24,7 @@ struct OtherView: View{
         }.padding(.horizontal, 10)
             .frame(maxWidth: .infinity,alignment: .top)
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
-        
     }
-    
     
     
     private var Title: some View{
@@ -62,7 +59,7 @@ struct OtherView: View{
     private var UserSection: some View{
         VStack(alignment: .center) {
             
-            Text("(작성한 닉네임) 님")
+            Text("\(nickname)님")
                 .font(
                     Font.custom("Pretendard", size: 24)
                         .weight(.semibold)
