@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject private var loginViewModel = LoginViewModel()
+    
+    @FocusState private var isIdFocused: Bool
+    @FocusState private var isPasswordFocused: Bool
+    
+    @State private var path = NavigationPath()
+//    @State private var isLoggedIn = false
+    
     var body: some View {
-        mainLoginGroup
+        NavigationStack {
+            mainLoginGroup
+        }
     }
     
     private var mainLoginGroup: some View {
@@ -24,7 +34,7 @@ struct LoginView: View {
         }
         .padding(EdgeInsets(top: 0, leading: 19, bottom: 0, trailing: 19))
         .background(Color.clear)
-        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+//        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
     }
 
     private var topLogoGroup: some View {
@@ -48,20 +58,35 @@ struct LoginView: View {
     private var inputLoginGroup: some View {
         VStack {
             Group {
-                Text("아이디")
-                    .font(.PretendardLight13)
-                    .frame(height: 1)
+                HStack {
+                    Text("아이디")
+                        .font(.PretendardLight13)
+                        .frame(height: 1)
+                    TextField("", text: $loginViewModel.loginModel.id)
+                        .focused($isIdFocused)
+                }
+                .frame(height: 12.57)
                 Divider()
+                    .frame(height: 1)
+                    .background(isIdFocused ? Color("mainGreenColor") : Color("fontLightgrayColor"))
                     .padding(EdgeInsets(top:0, leading: 0, bottom: 47, trailing: 0))
-                Text("비밀번호")
-                    .font(.PretendardLight13)
-                    .frame(height: 1)
+                
+                HStack {
+                    Text("비밀번호")
+                        .font(.PretendardLight13)
+                        .frame(height: 1)
+                    TextField("", text: $loginViewModel.loginModel.password)
+                        .focused($isPasswordFocused)
+                }
+                .frame(height: 12.57)
                 Divider()
+                    .frame(height: 1)
+                    .background(isPasswordFocused ? Color("mainGreenColor") : Color("fontLightgrayColor"))
                     .padding(EdgeInsets(top:0, leading: 0, bottom: 47, trailing: 0))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Button(action: { /*아직안함*/ }) {
+            Button(action: { loginViewModel.login(id: loginViewModel.loginModel.id, password: loginViewModel.loginModel.password) }) {
                 Text("로그인하기")
                     .font(.PretendardSemiBold16)
                     .foregroundColor(.white)
@@ -70,27 +95,33 @@ struct LoginView: View {
             .padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
             .background(Color("mainGreenColor"))
             .cornerRadius(20)
+            
+            .fullScreenCover(isPresented: $loginViewModel.isLoggedIn) {
+                TabBarView()
+            }
         }
     }
     
     private var bottomLoginGroup: some View {
         VStack(alignment: .center) {
-            Button(action: { /*아직안함*/ }) {
-                Text("이메일로 회원가입하기")
-                    .font(.PretendardLight12)
-                    .foregroundStyle(Color("fontLightgrayColor"))
-                    .underline()
-            }
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 19, trailing: 0))
-            Image("kakaoLogin")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(EdgeInsets(top: 0, leading: 48, bottom: 19, trailing: 48))
+            NavigationStack(path: $path) {
+                NavigationLink(destination: SignupView()) {
+                    Text("이메일로 회원가입하기")
+                        .font(.PretendardLight12)
+                        .foregroundStyle(Color("fontLightgrayColor"))
+                        .underline()
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 19, trailing: 0))
+                Image("kakaoLogin")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(EdgeInsets(top: 0, leading: 48, bottom: 19, trailing: 48))
                 
-            Image("appleLogin")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 48))
+                Image("appleLogin")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(EdgeInsets(top: 0, leading: 48, bottom: 0, trailing: 48))
+            }
         }
     }
 }
