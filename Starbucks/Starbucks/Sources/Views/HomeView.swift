@@ -13,7 +13,6 @@ struct HomeView: View {
     @State private var whatsNewViewModel = WhatsNewViewModel()
     @State private var dailyDessertViewModel = DailyDessertViewModel()
     @State private var menuDetailViewModel = MenuDetailViewModel()
-    
     @State private var showPopup = false
 
     var body: some View {
