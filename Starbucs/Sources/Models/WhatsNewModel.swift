@@ -8,7 +8,7 @@ import SwiftUI
 
 struct WhatsNewModel{
     
-    var image: Image
-    var title: String
-    var content: String
+    let image: Image
+    let title: String
+    let content: String
 }

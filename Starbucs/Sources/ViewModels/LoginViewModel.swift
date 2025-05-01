@@ -10,8 +10,6 @@ import SwiftUI
 
 class LoginViewModel : ObservableObject {
     
-    
-    
     @Published var loginmodel = LoginModel(id: "", password: "")
 
     @AppStorage("nickname") private var nickname: String = ""

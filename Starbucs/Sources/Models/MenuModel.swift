@@ -12,7 +12,7 @@ import SwiftUI
 struct MenuModel {
     let id = UUID()
 
-    var image: Image
-    var menuName: String
+    let image: Image
+    let menuName: String
     
 }
