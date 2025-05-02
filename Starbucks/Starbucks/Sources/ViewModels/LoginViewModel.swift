@@ -25,4 +25,3 @@ class LoginViewModel: ObservableObject {
         isLoggedIn = false
     }
 }
-
