@@ -112,7 +112,7 @@ struct HomeView: View {
             ScrollView(.horizontal, content: {
                 LazyHStack(spacing: 15, content: {
                     ForEach(recommendMenuViewModel.menuDetails, id: \.circleName) { item in
-                        CircleImageCard(circleInfo: item, menuDetailViewModel: menuDetailViewModel)
+                        CircleImageCard(circleInfo: item, menuDetailViewModel: menuDetailViewModel, layoutStyle: .vertical)
 //                        CircleImageCard(circleInfo: item)
                     }
                 })
@@ -187,7 +187,7 @@ struct HomeView: View {
             ScrollView(.horizontal, content: {
                 LazyHStack(spacing: 15, content: {
                     ForEach(dailyDessertViewModel.dailyDessertModel, id: \.circleName) { item in
-                        CircleImageCard(circleInfo: RecommendMenuModel(circleImage: item.circleImage, circleName: item.circleName), menuDetailViewModel: nil)
+                        CircleImageCard(circleInfo: RecommendMenuModel(circleImage: item.circleImage, circleName: item.circleName), menuDetailViewModel: nil, layoutStyle: .vertical)
 //                        CircleImageCard(circleInfo: RecommendMenuModel(circleImage: item.circleImage, circleName: item.circleName))
                     }
                 })

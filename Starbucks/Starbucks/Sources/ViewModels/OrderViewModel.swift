@@ -10,5 +10,6 @@ import SwiftUI
 
 class OrderViewModel: ObservableObject {
     @Published var selectedMenu: OrderModel = .entireMenu
+    @Published var selectedSubEntireMenu: SubEntireMenuModel = .drink
 }
 

@@ -14,3 +14,11 @@ enum OrderModel: String, CaseIterable, Identifiable {
 
     var id: String { self.rawValue }
 }
+
+enum SubEntireMenuModel: String, CaseIterable, Identifiable {
+    case drink = "음료"
+    case food = "푸드"
+    case goods = "상품"
+
+    var id: String { self.rawValue }
+}

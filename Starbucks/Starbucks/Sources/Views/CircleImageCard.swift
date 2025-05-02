@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct CircleImageCard: View {
+    
+    enum CardLayoutStyle {
+        case vertical
+        case horizontal
+    }
+    
     let circleInfo: RecommendMenuModel
     let menuDetailViewModel: MenuDetailViewModel?
+    let layoutStyle: CardLayoutStyle
     
     var body: some View {
             // 여기 확인 필요
@@ -23,16 +30,34 @@ struct CircleImageCard: View {
 //        cardGroup
     }
     
+    @ViewBuilder
     private var cardGroup: some View {
-        VStack {
-            circleInfo.circleImage
-                .resizable()
-                .frame(width: 130, height: 130)
-                .padding(.bottom, 10)
-            Text(circleInfo.circleName)
-                .font(.PretendardSemiBold14)
-                .foregroundColor(.black)
+        switch layoutStyle {
+        case .vertical:
+            VStack {
+                circleInfo.circleImage
+                    .resizable()
+                    .frame(width: 130, height: 130)
+                    .padding(.bottom, 10)
+                Text(circleInfo.circleName)
+                    .font(.PretendardSemiBold14)
+                    .foregroundColor(.black)
+            }
+
+        case .horizontal:
+            HStack {
+                circleInfo.circleImage
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .padding(.trailing, 12)
+                Text(circleInfo.circleName)
+                    .font(.PretendardSemiBold14)
+                    .foregroundColor(.black)
+                Spacer()
+            }
+            .padding(.vertical, 8)
         }
+        
 //        .onAppear {
 //            if let menuDetailViewModel, let _ = menuDetailViewModel.getMenuDetail(for: circleInfo.circleName) {
 //                print("✅ \(circleInfo.circleName) -> 네비게이션 가능")
@@ -44,7 +69,7 @@ struct CircleImageCard: View {
 }
 
 #Preview {
-    CircleImageCard(circleInfo: RecommendMenuModel(circleImage: Image("rcmMenu1"), circleName: "에스프레소 콘파나"), menuDetailViewModel: nil)
+    CircleImageCard(circleInfo: RecommendMenuModel(circleImage: Image("rcmMenu1"), circleName: "에스프레소 콘파나"), menuDetailViewModel: nil, layoutStyle: .vertical)
 }
 
 //
