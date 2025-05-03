@@ -20,7 +20,9 @@ struct HomeView: View {
 
     @AppStorage("nickname") private var nickname: String = ""
     
-    @State private var path = NavigationPath()
+    @State private var router = NavigationRouter() // 라우터 인스턴스 생성
+    
+    let brows = Array(repeating: GridItem(), count: 1)
     
     
     var body: some View {
@@ -72,7 +74,7 @@ struct HomeView: View {
                    Text("내용 보기 →")
                        .font(.PretendardLight14)
                        .foregroundStyle(.black)
-               }.frame(alignment: .trailing) // 왜 안 되는 것인가
+               }.frame(width: 300, alignment: .trailing)// 왜 안 되는 것인가
 
                Spacer()
                
@@ -131,7 +133,7 @@ struct HomeView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, spacing: 16) {
                     
-                    ForEach(recommandviewModel.recommandInstanceArr, id: \.menuName) { menuItem in
+                    ForEach(recommandviewModel.recommandInstanceArr) { menuItem in
                         CircleImageCard(Menuinfo: menuItem)
                     }
                 }
@@ -226,9 +228,8 @@ struct HomeView: View {
     }
     
     private var bread: some View {
-        let rows = Array(repeating: GridItem(), count: 1)
-        
-        return VStack(alignment: .leading) {
+     
+        VStack(alignment: .leading) {
             
             Text("하루가 달콤해지는 디저트")
                 .font(Font.PretendardSemiBold24)
@@ -236,20 +237,29 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, spacing: 10) {
-                    ForEach(dessertviewModel.dessertInstanceArr, id: \.menuName) { MenuItem
-                        in CircleImageCard(Menuinfo: MenuItem)
+                LazyHGrid(rows: brows, spacing: 10) {
+                    ForEach(dessertviewModel.dessertInstanceArr) { MenuItem in CircleImageCard(Menuinfo: MenuItem)
                             .onTapGesture {
-                                path.append("GKGKG")
+                                router.push(.detail(title: MenuItem.menuName))
+                                print("클릭됨") //얜 되는데 왜 라우터는 안 됨
+                            }.navigationDestination(for: Route.self) { route in
+                                switch route {
+                                case .detail(_):
+                                    // LoginView() //얘 해도 안 됨
+                                    MenuDetailView(Menuinfo: MenuItem)
+                                case .profile(userID: _):
+                                    MenuDetailView(Menuinfo: MenuItem)
+                                case .home:
+                                    MenuDetailView(Menuinfo: MenuItem)
+                                case .tap:
+                                    TapView()
+                                }
                             }
+                            .navigationTitle("Home")
                     }
                 }
             }.padding(.horizontal, 10)
         } .padding(.horizontal, 10)
-            .navigationTitle("메뉴")
-            .navigationDestination(for: String.self) { value in 
-                MenuDetailView()
-            }
     }
     
     private var other: some View{

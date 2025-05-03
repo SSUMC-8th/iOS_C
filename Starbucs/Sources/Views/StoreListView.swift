@@ -82,7 +82,7 @@ struct StoreListView: View {
                             .font(Font.PretendardSemiBold13)
                         
                         Text(store.locate)
-                            .font(Font.PretendardRegular09)
+                            .font(Font.PretendardSemiBold13)
                     }
                     .padding(.vertical, 6)
                     .frame(width: 276, alignment: .topLeading)

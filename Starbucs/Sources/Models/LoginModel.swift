@@ -12,5 +12,7 @@ struct LoginModel {
     
     var id: String
     var password: String
+    var isLogin: Bool
+    var isAct: Bool
 
 }

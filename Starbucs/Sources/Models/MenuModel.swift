@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct MenuModel {
+struct MenuModel: Identifiable {
     let id = UUID()
 
     let image: Image
