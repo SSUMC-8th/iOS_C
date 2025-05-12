@@ -73,25 +73,17 @@ struct OtherReceiptView: View {
             }
             
             if showReceiptImage {
-                Color.black.opacity(0.6) // 뒷배경 어둡게
-//                    .onTapGesture {
-//                        showReceiptImage = false // 배경 눌러도 닫힘
-//                    }
+                Color.black.opacity(0.6)
                 
                 VStack {
                     Image("receipt1")
-//                        .resizable()
-//                        .scaledToFit()
                         .padding()
                         .onTapGesture {
-                            showReceiptImage = false // 이미지 눌러도 닫힘
+                            showReceiptImage = false
                         }
                 }
-//                .transition(.scale) // 나타날 때 부드럽게
-//                .zIndex(1) // 맨 위에
             }
         }
-//        .animation(.easeInOut, value: showReceiptImage)
     }
 }
 

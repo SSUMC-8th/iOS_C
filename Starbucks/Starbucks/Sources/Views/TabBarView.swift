@@ -21,7 +21,7 @@ struct TabBarView: View {
             }
             
             Tab("Order", image: selection == 2 ? "selectedOrder" : "unselectedOrder", value: 2) {
-//                OrderView()
+                OrderView()
             }
             
             Tab("Shop", image: selection == 3 ? "selectedShop" : "unselectedShop", value: 3) {
