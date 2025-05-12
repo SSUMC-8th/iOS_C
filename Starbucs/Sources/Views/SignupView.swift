@@ -10,8 +10,16 @@ import Foundation
 
 struct SignupView: View {
     
-    @StateObject private var viewModel = SignupViewModel()
-
+    @StateObject private var signupViewModel = SignupViewModel()
+    
+//    @AppStorage("nickname") private var nickname: String = ""
+//    @AppStorage ("password") private var password: String = ""
+//    @AppStorage ("email") private var email: String = ""
+    
+    @State var nickName: String = ""
+    @State var password: String = ""
+    @State var email: String = ""
+    
     
     var body: some View {
         
@@ -37,10 +45,11 @@ struct SignupView: View {
     private var TestFiled: some View {
         VStack(alignment:.leading){
             
-            TextField("닉네임", text: $viewModel.signupModel.nickname)
+            TextField("닉네임", text: $signupViewModel.signupModel.nickname)
                 .font(Font.PretendardRegular18)
                 .foregroundColor(Color("black01"))
                 .onSubmit {
+                    nickName = signupViewModel.signupModel.nickname
                     print("사용자가 닉네임 입력 완료")
                 }
             
@@ -49,10 +58,11 @@ struct SignupView: View {
             Spacer().frame(height: 47)
             
             
-            TextField("비밀번호", text: $viewModel.signupModel.password)
+            TextField("비밀번호", text: $signupViewModel.signupModel.password)
                 .font(Font.PretendardRegular18)
                 .foregroundColor(Color("black01"))
                 .onSubmit {
+                    password = signupViewModel.signupModel.password
                     print("사용자가 비번 입력 완료")
                 }
             // 커서 작동하는 동안 초록색으로 바꾸기
@@ -60,10 +70,11 @@ struct SignupView: View {
             Divider()
             Spacer().frame(height: 47)
             
-            TextField("이메일", text: $viewModel.signupModel.email)
+            TextField("이메일", text: $signupViewModel.signupModel.email)
                 .font(Font.PretendardRegular18)
                 .foregroundColor(Color("black01"))
                 .onSubmit {
+                    email = signupViewModel.signupModel.email
                     print("사용자가 이메일 입력 완료")
                 }
             
@@ -78,7 +89,7 @@ struct SignupView: View {
         
         
         Button(action: {
-            viewModel.createAccount()
+            signupViewModel.createAccount(N: nickName, P: password, E: email)
         }){
             ZStack(alignment: .center){
                 

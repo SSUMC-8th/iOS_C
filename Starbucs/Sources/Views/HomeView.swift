@@ -14,10 +14,17 @@ struct HomeView: View {
     
     @State private var dessertviewModel = DessertsViewModel()
     
-    @State private var specialtyMenuviewModel = SpecialtyMenuViewModel()
+    @State private var recommandviewModel = RecommandViewModel()
     
     @State private var whatsnewviewModel = WhatsnewViewModel()
 
+    @AppStorage("nickname") private var nickname: String = ""
+    
+    @State private var router = NavigationRouter() // 라우터 인스턴스 생성
+    
+    let brows = Array(repeating: GridItem(), count: 1)
+    
+    
     var body: some View {
         
         ScrollView {
@@ -67,7 +74,7 @@ struct HomeView: View {
                    Text("내용 보기 →")
                        .font(.PretendardLight14)
                        .foregroundStyle(.black)
-               }.frame(alignment: .trailing) // 왜 안 되는 것인가
+               }.frame(width: 300, alignment: .trailing)// 왜 안 되는 것인가
 
                Spacer()
                
@@ -117,26 +124,17 @@ struct HomeView: View {
         
         return VStack(alignment: .leading) {
             
-            Text("\(signupviewModel.signupModel.nickname)님을 위한 추천 메뉴")
+            Text("\(nickname)님을 위한 추천 메뉴")
                 .font(Font.PretendardSemiBold24)
                 .foregroundColor(.black)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, spacing: 16) {
                     
-                    ForEach(0...5, id: \.self) { index in
-                        
-//                        Image(.eventBanner)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(maxWidth: .infinity)
-//                        .frame(height: 80)
-                        
-                        CircleImageCard(dessertsinfo: dessertviewModel.dessertModel[index])
-                        
-                        //재사용 어떻게 하지??
-                        //CircleImageCard(specialtyinfo: specialtyMenuviewModel.specialtyMenuModel[index])
+                    ForEach(recommandviewModel.recommandInstanceArr) { menuItem in
+                        CircleImageCard(Menuinfo: menuItem)
                     }
                 }
             }.padding(.horizontal, 10)
@@ -186,7 +184,7 @@ struct HomeView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, spacing: 10) {
                     ForEach(0...2, id: \.self) { index in
-                        WhatsNewCardView(whatsNewinfo: whatsnewviewModel.whatsnewModel[index])
+                        WhatsNewCard(whatsNewinfo: whatsnewviewModel.whatsnewModel[index])
                     }
                 }
             }.padding(.horizontal, 10)
@@ -230,9 +228,8 @@ struct HomeView: View {
     }
     
     private var bread: some View {
-        let rows = Array(repeating: GridItem(), count: 1)
-        
-        return VStack(alignment: .leading) {
+     
+        VStack(alignment: .leading) {
             
             Text("하루가 달콤해지는 디저트")
                 .font(Font.PretendardSemiBold24)
@@ -240,9 +237,25 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, spacing: 10) {
-                    ForEach(0...5, id: \.self) { index in
-                        CircleImageCard(dessertsinfo: dessertviewModel.dessertModel[index])
+                LazyHGrid(rows: brows, spacing: 10) {
+                    ForEach(dessertviewModel.dessertInstanceArr) { MenuItem in CircleImageCard(Menuinfo: MenuItem)
+                            .onTapGesture {
+                                router.push(.detail(title: MenuItem.menuName))
+                                print("클릭됨") //얜 되는데 왜 라우터는 안 됨
+                            }.navigationDestination(for: Route.self) { route in
+                                switch route {
+                                case .detail(_):
+                                    // LoginView() //얘 해도 안 됨
+                                    MenuDetailView(Menuinfo: MenuItem)
+                                case .profile(userID: _):
+                                    MenuDetailView(Menuinfo: MenuItem)
+                                case .home:
+                                    MenuDetailView(Menuinfo: MenuItem)
+                                case .tap:
+                                    TapView()
+                                }
+                            }
+                            .navigationTitle("Home")
                     }
                 }
             }.padding(.horizontal, 10)

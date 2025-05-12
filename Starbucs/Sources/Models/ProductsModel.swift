@@ -10,6 +10,6 @@ import SwiftUI
 
 struct ProductsModel {
     
-    var image: Image
-    var productName: String
+    let image: Image
+    let productName: String
 }

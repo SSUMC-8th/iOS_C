@@ -10,20 +10,38 @@ import SwiftUI
 struct LoginView : View {
     
     
-    @State private var loginid: String = ""
-    @State private var loginpassword: String = ""
+    @StateObject private var loginViewModel = LoginViewModel()
+    @StateObject private var router = NavigationRouter()
+    
+    
+    @State var loginid: String = ""
+    @State var loginpassword: String = ""
     
     var body: some View {
-        
-        VStack {
-            Spacer()
-            title
-            Spacer()
-            middle
-            Spacer()
-            bottom
-        }.padding(EdgeInsets(top: 0, leading: 19, bottom: 0, trailing: 19))
-        
+        NavigationStack(path: $router.path) {
+            VStack {
+                Spacer()
+                title
+                Spacer()
+                middle
+                Spacer()
+                bottom
+                Spacer()
+                
+            }.padding(EdgeInsets(top: 0, leading: 19, bottom: 0, trailing: 19))
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .home:
+                        HomeView()
+                    case .detail(let title):
+                        HomeView()
+                    case .profile(let userID):
+                        HomeView()
+                    case .tap:
+                        SignupView()
+                    }
+                }
+        }
     }
     
     private var title : some View {
@@ -55,113 +73,101 @@ struct LoginView : View {
         // 둘 다 리딩값 줘야하는 이유: 브이스택 안에 있는 자식 개체에서 가장 큰 애를 따라감.
         // 스타벅스를 HStack : 배경색 주고 테스트해보기!
     }
-
     
-    private var middle : some View {
-        
-        VStack(alignment: .center){
-            VStack (alignment: .leading){
+    
+        private var middle : some View {
+            
+            VStack(alignment: .center){
                 
-         
-                TextField("아이디", text: $loginid) //id: id가 아님?
-                        .font(Font.PretendardRegular13)
-                    .foregroundColor(Color("black01"))
-                        .onSubmit {
-                        print("사용자가 아이디 입력 완료: \(loginid)")
-                                   }
-                
-                Divider().foregroundColor(Color("green01"))
-                
-                Spacer().frame(height: 47)
-                
-           
-                    TextField("비밀번호", text: $loginpassword)
+                VStack (alignment: .leading){
+                    
+                    TextField("아이디", text: $loginViewModel.loginmodel.id)
                         .font(Font.PretendardRegular13)
                         .foregroundColor(Color("black01"))
                         .onSubmit {
-                        print("사용자가 비번 입력 완료: \(loginpassword)")
-                                   }
-                // 커서 작동하는 동안 초록색으로 바꾸기
+                            print("사용자가 아이디 입력 완료: \($loginViewModel.loginmodel.id)")
+                        }
+                    
+                    Divider().foregroundColor(Color("green01"))
+                    
+                    Spacer().frame(height: 47)
+                    
+                    
+                    TextField("비밀번호", text: $loginViewModel.loginmodel.password)
+                        .font(Font.PretendardRegular13)
+                        .foregroundColor(Color("black01"))
+                        .onSubmit {
+                            print("사용자가 비번 입력 완료: \($loginViewModel.loginmodel.password)")
+                        }
+                    // 커서 작동하는 동안 초록색으로 바꾸기
+                    
+                    Divider().foregroundColor(Color("green01"))
+                    
+                    Spacer().frame(height: 47)
+                    
+                }.shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                 
-                Divider().foregroundColor(Color("green01"))
                 
-                Spacer().frame(height: 47)
+                Button(action: {
+                    loginViewModel.login(id: loginid,pw: loginpassword)
+                }) {
+                    Text("로그인하기")
+                        .font(Font.PretendardMedium16)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 46)
+                        .background(Color("green01"))
+                        .cornerRadius(20)
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                }
+                .fullScreenCover(isPresented: $loginViewModel.isLogin) {
+                    TapView()
+                }
                 
-            }.shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-            
-            
-            Button(action: {
-                print("메롱메롱")
-            }) {
-                
-                Text("로그인하기")
-                    .font(Font.PretendardMedium16)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 46)
-                    .background(Color("green01"))
-                    .cornerRadius(20)
-                    .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
             }
         }
-    }
-    
-    
-//// 텍스트 필드
-//    struct CounterView: View {
-//        @State private var text: String = ""
-//
-//        var body: some View {
-//            VStack {
-//                Text("텍스트 내용: \(text)")
-//                    .font(.largeTitle)
-//
-//                TextField("아무 값을 입력해보세요!", text: $text)
-//                    .frame(width: 350)
-//            }
-//        }
-//    }
     
     
     private var bottom : some View {
-        
+
         VStack(alignment: .center){
-            
-            Spacer().frame(height: 19)
-            
-            Button(action: {
-                print("메롱메롱")
-            }) {
-                Text("이메일로 회원가입하기")
-                    .underline(true, pattern: .solid)
-                    .font(Font.PretendardRegular12) //변경
-                    .foregroundColor(Color("gray01"))
-            }
-            
-            Spacer().frame(height: 19)
-            
-            Button(action: {
-                print("메롱메롱")
-            }) {
-                Image(.kakaoLogin)
-                    .frame(width: 306)
-                    .aspectRatio(contentMode: .fit)
-            }
-            
-            Spacer().frame(height: 19)
-            
-            Button(action: {
-                print("메롱메롱")
-            }) {
-                Image(.appleLogin)
-                    .frame(width: 306)
-                    .aspectRatio(contentMode: .fit)
+          
+                Spacer().frame(height: 19)
+                
+                Button(action: {
+                    print("메롱메롱")
+                    router.push(.tap)
+                }) {
+                    Text("이메일로 회원가입하기")
+                        .underline(true, pattern: .solid)
+                        .font(Font.PretendardRegular12) //변경
+                        .foregroundColor(Color("gray01"))
+                }
+                Spacer().frame(height: 19)
+                
+                Button(action: {
+                    print("메롱메롱")
+                    router.push(.tap)
+                }) {
+                    Image(.kakaoLogin)
+                        .frame(width: 306)
+                        .aspectRatio(contentMode: .fit)
+                }
+                
+                Spacer().frame(height: 19)
+                
+                Button(action: {
+                    print("메롱메롱")
+                    router.push(.tap)
+                }) {
+                    Image(.appleLogin)
+                        .frame(width: 306)
+                        .aspectRatio(contentMode: .fit)
+                }
             }
         }
     }
-}
 
-
-#Preview {
-    LoginView()
-}
+    #Preview {
+        LoginView()
+    }

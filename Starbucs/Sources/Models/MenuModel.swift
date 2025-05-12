@@ -9,9 +9,10 @@
 import Foundation
 import SwiftUI
 
-struct SpecialtyMenuModel {
-    
-    var image: Image
-    var menuName: String
+struct MenuModel: Identifiable {
+    let id = UUID()
+
+    let image: Image
+    let menuName: String
     
 }

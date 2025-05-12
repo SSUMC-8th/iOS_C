@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WhatsNewCardView: View {
+struct WhatsNewCard: View {
     
     let whatsNewinfo: WhatsNewModel
       
@@ -37,5 +37,5 @@ struct WhatsNewCardView: View {
 }
 
 #Preview {
-    WhatsNewCardView(whatsNewinfo: .init(image: .init(.mug), title: "새 메뉴 추가", content: "오늘의 메뉴는 새 메뉴 '라볶이'입니다."))
+    WhatsNewCard(whatsNewinfo: .init(image: .init(.mug), title: "새 메뉴 추가", content: "오늘의 메뉴는 새 메뉴 '라볶이'입니다."))
 }
